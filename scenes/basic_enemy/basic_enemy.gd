@@ -1,3 +1,4 @@
+#7
 extends CharacterBody2D
 
 const MAX_SPEED = 75
