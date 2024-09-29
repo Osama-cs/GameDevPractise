@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfndut0mwrdfj"]
+[gd_scene load_steps=8 format=3 uid="uid://cfndut0mwrdfj"]
 
 [ext_resource type="PackedScene" uid="uid://b3ba7d4pn4rrv" path="res://scenes/manager/enemy_manager.tscn" id="1_74gbx"]
-[ext_resource type="PackedScene" uid="uid://c3q5cynrnbp2l" path="res://scenes/player/player.tscn" id="1_8164m"]
-[ext_resource type="PackedScene" uid="uid://d1eawtlu502o4" path="res://scenes/game_camera/game_camera.tscn" id="1_d6rrq"]
+[ext_resource type="PackedScene" uid="uid://c3q5cynrnbp2l" path="res://scenes/game_object/player/player.tscn" id="1_8164m"]
+[ext_resource type="PackedScene" uid="uid://d1eawtlu502o4" path="res://scenes/game_object/game_camera/game_camera.tscn" id="1_d6rrq"]
 [ext_resource type="PackedScene" uid="uid://drsy3kbf1b53g" path="res://scenes/ui/arena_time_ui.tscn" id="1_kmv2a"]
 [ext_resource type="TileSet" uid="uid://b2ataupoqyh0l" path="res://resources/tileset.tres" id="1_q3652"]
 [ext_resource type="PackedScene" uid="uid://cckkoltiy25el" path="res://scenes/manager/arena_time_manager.tscn" id="2_574pi"]
+[ext_resource type="PackedScene" uid="uid://bqj5eio2pacht" path="res://scenes/game_object/experience_vial/experience_vial.tscn" id="7_pqho8"]
 
 [node name="Main" type="Node"]
 
@@ -26,3 +27,18 @@ layer_0/tile_data = PackedInt32Array(262144, 0, 4, 262145, 0, 4, 262146, 0, 4, 2
 
 [node name="Player" parent="." instance=ExtResource("1_8164m")]
 position = Vector2(470, 332)
+
+[node name="ExperienceVial" parent="." instance=ExtResource("7_pqho8")]
+position = Vector2(414, 343)
+
+[node name="ExperienceVial2" parent="." instance=ExtResource("7_pqho8")]
+position = Vector2(426, 284)
+
+[node name="ExperienceVial3" parent="." instance=ExtResource("7_pqho8")]
+position = Vector2(521, 287)
+
+[node name="ExperienceVial4" parent="." instance=ExtResource("7_pqho8")]
+position = Vector2(533, 345)
+
+[node name="ExperienceVial5" parent="." instance=ExtResource("7_pqho8")]
+position = Vector2(472, 400)
