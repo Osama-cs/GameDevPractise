@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfndut0mwrdfj"]
+[gd_scene load_steps=10 format=3 uid="uid://cfndut0mwrdfj"]
 
 [ext_resource type="PackedScene" uid="uid://b3ba7d4pn4rrv" path="res://scenes/manager/enemy_manager.tscn" id="1_74gbx"]
 [ext_resource type="PackedScene" uid="uid://c3q5cynrnbp2l" path="res://scenes/game_object/player/player.tscn" id="1_8164m"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cckkoltiy25el" path="res://scenes/manager/arena_time_manager.tscn" id="2_574pi"]
 [ext_resource type="PackedScene" uid="uid://cdcr1ryhkwfg3" path="res://scenes/ui/experience_bar.tscn" id="2_jo21g"]
 [ext_resource type="PackedScene" uid="uid://c1j5dqltitcsy" path="res://scenes/manager/experience_manager.tscn" id="4_0avdw"]
+[ext_resource type="PackedScene" uid="uid://cux1val482ur" path="res://scenes/manager/upgrade_manager.tscn" id="6_r5rve"]
 
 [node name="Main" type="Node"]
 
@@ -22,6 +23,9 @@ experience_manager = NodePath("../ExperienceManager")
 [node name="EnemyManager" parent="." instance=ExtResource("1_74gbx")]
 
 [node name="ExperienceManager" parent="." instance=ExtResource("4_0avdw")]
+
+[node name="UpgradeManager" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("6_r5rve")]
+experience_manager = NodePath("../ExperienceManager")
 
 [node name="GameCamera" parent="." instance=ExtResource("1_d6rrq")]
 
