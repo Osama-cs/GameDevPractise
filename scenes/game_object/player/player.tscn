@@ -1,9 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3q5cynrnbp2l"]
+[gd_scene load_steps=10 format=3 uid="uid://c3q5cynrnbp2l"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_ldp3v"]
 [ext_resource type="Texture2D" uid="uid://gobgcb5f448g" path="res://scenes/game_object/player/player.png" id="2_jb81w"]
 [ext_resource type="PackedScene" uid="uid://dssq1ky1p5cq5" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_rr18a"]
 [ext_resource type="PackedScene" uid="uid://bwfxrp0t0rmss" path="res://scenes/component/health_component.tscn" id="4_fpn2g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tr8f"]
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ri3c"]
+bg_color = Color(1, 0.439216, 0.427451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihlcg"]
 radius = 32.0
@@ -29,7 +40,21 @@ script = ExtResource("1_ldp3v")
 wait_time = 0.5
 one_shot = true
 
+[node name="HealthBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(32, 6)
+offset_left = -16.0
+offset_top = -23.0
+offset_right = 16.0
+offset_bottom = -17.0
+pivot_offset = Vector2(16, 3)
+theme_override_styles/background = SubResource("StyleBoxFlat_8tr8f")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5ri3c")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
 [node name="PickupArea2D" type="Area2D" parent="."]
+visible = false
 position = Vector2(-1, -5)
 collision_layer = 16
 collision_mask = 0
@@ -38,6 +63,7 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_ihlcg")
 
 [node name="CollisionArea2D" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -6)
 collision_layer = 0
 collision_mask = 8
@@ -51,5 +77,6 @@ texture = ExtResource("2_jb81w")
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_yqqom")

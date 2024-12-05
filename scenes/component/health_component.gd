@@ -2,6 +2,7 @@ extends Node
 class_name HealthComponent
 
 signal died
+signal health_changed
 
 @export var max_health: float = 10
 var current_health
@@ -13,9 +14,15 @@ func damage(damage_amount: float):
 	#unoptimal code as it will allow health to go into the minues which we son't want.
 	#current_health -= damage_amount
 	current_health = max(current_health - damage_amount, 0)
+	health_changed.emit()
 	#This will stop an error from appearing that will not affect the code.
 	Callable(check_death).call_deferred()
 
+
+func get_health_percent():
+	if max_health <= 0:
+		return 0
+	return min(current_health / max_health, 1)
 
 
 func check_death():
