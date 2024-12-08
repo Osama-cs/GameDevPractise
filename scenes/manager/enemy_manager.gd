@@ -25,5 +25,7 @@ func on_timer_timeout():
 	#We instantiate the enemy, add it to the parent of the enemy manager which is going to be main.
 	#Then we asign the global postion to the spwan postion that is caluclated.
 	var enemy = basic_enemy_scene.instantiate() as Node2D
-	get_parent().add_child(enemy)
+	
+	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
+	entities_layer.add_child(enemy)
 	enemy.global_position = spawn_position
