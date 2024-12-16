@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3q5cynrnbp2l"]
+[gd_scene load_steps=11 format=3 uid="uid://c3q5cynrnbp2l"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_ldp3v"]
 [ext_resource type="Texture2D" uid="uid://gobgcb5f448g" path="res://scenes/game_object/player/player.png" id="2_jb81w"]
 [ext_resource type="PackedScene" uid="uid://dssq1ky1p5cq5" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_rr18a"]
+[ext_resource type="PackedScene" uid="uid://cnajeaebvxofi" path="res://scenes/ability/axe_ability_controller/axe_ability_controller.tscn" id="4_1xg3m"]
 [ext_resource type="PackedScene" uid="uid://bwfxrp0t0rmss" path="res://scenes/component/health_component.tscn" id="4_fpn2g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tr8f"]
@@ -35,6 +36,8 @@ script = ExtResource("1_ldp3v")
 [node name="AbilityManager" type="Node" parent="."]
 
 [node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_rr18a")]
+
+[node name="AxeAbilityController" parent="AbilityManager" instance=ExtResource("4_1xg3m")]
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5
