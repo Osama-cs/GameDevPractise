@@ -3,8 +3,6 @@ extends Node2D
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
 @onready var sprite = $Sprite2D
 
-
-
 func _ready():
 	$Area2D.area_entered.connect(on_area_entered)
 
@@ -41,5 +39,4 @@ func on_area_entered(other_area: Area2D):
 	.set_trans(Tween.TRANS_BACK)
 	tween.tween_property(sprite, "scale", Vector2.ZERO, 0.05).set_delay(0.45)
 	tween.chain()
-	
 	tween.tween_callback(collect)

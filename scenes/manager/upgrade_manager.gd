@@ -8,8 +8,6 @@ var current_upgrades = {}
 
 func _ready():
 	experience_manager.level_up.connect(on_level_up)
-	
-
 
 func apply_upgrade(upgrade: AbilityUpgrade):
 	var has_upgrade = current_upgrades.has(upgrade.id)
