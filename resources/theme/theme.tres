@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dxrue4lnq5hoi"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dxrue4lnq5hoi"]
 
 [ext_resource type="Texture2D" uid="uid://1kjvyjxv5gs1" path="res://assets/ui/ui.png" id="1_4ok8q"]
 [ext_resource type="FontFile" uid="uid://8fxvtqjxixes" path="res://resources/theme/CelticTime.ttf" id="1_schqr"]
@@ -23,6 +23,9 @@ texture_margin_right = 4.0
 texture_margin_bottom = 10.0
 region_rect = Rect2(0, 0, 16, 16)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tr8f"]
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+
 [resource]
 default_font = ExtResource("1_schqr")
 default_font_size = 16
@@ -30,3 +33,4 @@ AlternatePanelContainer/base_type = &"PanelContainer"
 AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_dy7bv")
 Label/constants/line_spacing = 0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_uy6uc")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_8tr8f")
