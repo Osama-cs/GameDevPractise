@@ -2,7 +2,6 @@ extends Camera2D
 
 var target_position = Vector2.ZERO
 
-
 func _ready():
 	make_current()
 
