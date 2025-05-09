@@ -1,10 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3q5cynrnbp2l"]
+[gd_scene load_steps=19 format=3 uid="uid://c3q5cynrnbp2l"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_ldp3v"]
 [ext_resource type="Texture2D" uid="uid://gobgcb5f448g" path="res://scenes/game_object/player/player.png" id="2_jb81w"]
 [ext_resource type="PackedScene" uid="uid://dssq1ky1p5cq5" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_rr18a"]
 [ext_resource type="PackedScene" uid="uid://5uad2x5iev7b" path="res://scenes/component/velocity_component.tscn" id="2_wwojx"]
 [ext_resource type="PackedScene" uid="uid://bwfxrp0t0rmss" path="res://scenes/component/health_component.tscn" id="4_fpn2g"]
+[ext_resource type="PackedScene" uid="uid://pepkb8mac4up" path="res://scenes/component/random_stream_player_2_component.tscn" id="5_0elmt"]
+[ext_resource type="AudioStream" uid="uid://cir6tnu3m6non" path="res://assets/audio/impactMining_000.ogg" id="6_13qul"]
+[ext_resource type="AudioStream" uid="uid://dl6ssqi7tlmw2" path="res://assets/audio/impactMining_001.ogg" id="7_y5py6"]
+[ext_resource type="AudioStream" uid="uid://beron7civo5b8" path="res://assets/audio/impactMining_002.ogg" id="8_qagrf"]
+[ext_resource type="AudioStream" uid="uid://bv8j77a4i2l15" path="res://assets/audio/impactMining_003.ogg" id="9_2qyjh"]
+[ext_resource type="AudioStream" uid="uid://dve611jeypnif" path="res://assets/audio/impactMining_004.ogg" id="10_g2r4r"]
 
 [sub_resource type="Animation" id="Animation_jokqi"]
 length = 0.001
@@ -128,6 +134,9 @@ acceleration = 25.0
 [node name="Abilities" type="Node" parent="."]
 
 [node name="SwordAbilityController" parent="Abilities" instance=ExtResource("2_rr18a")]
+
+[node name="HitRandomStreamPlayer" parent="." instance=ExtResource("5_0elmt")]
+streams = Array[AudioStream]([ExtResource("6_13qul"), ExtResource("7_y5py6"), ExtResource("8_qagrf"), ExtResource("9_2qyjh"), ExtResource("10_g2r4r")])
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5

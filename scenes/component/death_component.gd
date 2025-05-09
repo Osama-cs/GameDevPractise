@@ -20,3 +20,4 @@ func on_died():
 	
 	global_position = spawn_postion
 	$AnimationPlayer.play("default")
+	$HitRandomAudioPlayerComponent.play_random()

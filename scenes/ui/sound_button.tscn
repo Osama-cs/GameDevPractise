@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://512dypbj3vwc"]
+
+[ext_resource type="Script" path="res://scenes/ui/sound_button.gd" id="1_g5txo"]
+[ext_resource type="PackedScene" uid="uid://crcgr0jwuggto" path="res://scenes/component/random_stream_player_component.tscn" id="2_7e844"]
+[ext_resource type="AudioStream" uid="uid://vavl7gy7v2hh" path="res://assets/audio/mouseclick1.ogg" id="3_yq1pe"]
+
+[node name="SoundButton" type="Button"]
+offset_right = 6.0
+offset_bottom = 6.0
+text = "Sound Test"
+script = ExtResource("1_g5txo")
+
+[node name="RandomStreamPlayerComponent" parent="." instance=ExtResource("2_7e844")]
+streams = Array[AudioStream]([ExtResource("3_yq1pe")])
