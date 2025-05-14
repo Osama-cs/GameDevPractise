@@ -8,7 +8,6 @@
 script = ExtResource("1_lbmem")
 
 [node name="TileMap" type="TileMap" parent="."]
-visible = false
 position = Vector2(-18, -12)
 tile_set = ExtResource("2_1jaey")
 format = 2
@@ -50,15 +49,18 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="SFXOptionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsContainer"]
+[node name="SfxOptionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/SFXOptionContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/SfxOptionContainer"]
 layout_mode = 2
 text = "SFX Volume:"
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/SFXOptionContainer"]
+[node name="SfxSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/SfxOptionContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+max_value = 1.0
+step = 0.01
 
 [node name="MusicOptionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsContainer"]
 layout_mode = 2
@@ -67,8 +69,11 @@ layout_mode = 2
 layout_mode = 2
 text = "Music Volume:"
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/MusicOptionContainer"]
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/MusicOptionContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+max_value = 1.0
+step = 0.01
 
 [node name="WindowOptionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsContainer"]
 layout_mode = 2
@@ -77,10 +82,11 @@ layout_mode = 2
 layout_mode = 2
 text = "Window Mode:"
 
-[node name="SoundButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/WindowOptionContainer" instance=ExtResource("3_ulj6j")]
+[node name="WindowButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsContainer/WindowOptionContainer" instance=ExtResource("3_ulj6j")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 
 [node name="BackButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_ulj6j")]
 unique_name_in_owner = true
