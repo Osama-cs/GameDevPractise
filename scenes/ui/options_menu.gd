@@ -6,13 +6,15 @@ signal back_pressed
 @onready var sfx_slider = %SfxSlider
 @onready var music_slider = %MusicSlider
 @onready var back_button = $%BackButton
+@onready var sfx_percentage = %SfxPercentage
+@onready var music_percentage = %MusicPercentage
 
 
 func _ready():
 	back_button.pressed.connect(on_back_pressed)
 	window_button.pressed.connect(on_windows_button_pressed)
-	sfx_slider.value_changed.connect(on_audio_slider_changed.bind("sfx"))
-	music_slider.value_changed.connect(on_audio_slider_changed.bind("music"))
+	sfx_slider.value_changed.connect(on_audio_slider_sfx_changed.bind("sfx"))
+	music_slider.value_changed.connect(on_audio_slider_music_changed.bind("music"))
 	update_display()
 
 
@@ -46,8 +48,19 @@ func on_windows_button_pressed():
 	update_display()
 
 
-func on_audio_slider_changed(slider_value: float, bus_name: String):
+#func on_audio_slider_changed(slider_value: float, bus_name: String):
+	#set_bus_volume_percent(bus_name, slider_value)
+	#music_percentage.text = str(slider_value)
+
+func on_audio_slider_sfx_changed(slider_value: float, bus_name: String):
 	set_bus_volume_percent(bus_name, slider_value)
+	sfx_percentage.text = str(slider_value)
+
+
+func on_audio_slider_music_changed(slider_value: float, bus_name: String):
+	set_bus_volume_percent(bus_name, slider_value)
+	music_percentage.text = str(slider_value)
+
 
 
 func on_back_pressed():
