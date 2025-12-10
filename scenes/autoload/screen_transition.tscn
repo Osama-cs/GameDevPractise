@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl0jbh6l86pdc"]
+
+[ext_resource type="Shader" path="res://scenes/autoload/screen_transition.gdshader" id="1_eef3t"]
+[ext_resource type="Texture2D" uid="uid://bq2vow2lhtond" path="res://assets/ui/screen_transition.png" id="2_4l0w1"]
+
+[sub_resource type="Animation" id="Animation_16hit"]
+resource_name = "default"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qj5ma"]
+_data = {
+"default": SubResource("Animation_16hit")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pln3m"]
+shader = ExtResource("1_eef3t")
+shader_parameter/transition_color = Color(0.247059, 0.14902, 0.192157, 1)
+shader_parameter/percent = 0.437
+shader_parameter/transition_texture = ExtResource("2_4l0w1")
+
+[node name="ScreenTransition" type="CanvasLayer"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qj5ma")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pln3m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
