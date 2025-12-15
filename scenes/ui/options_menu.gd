@@ -47,11 +47,6 @@ func on_windows_button_pressed():
 	
 	update_display()
 
-
-#func on_audio_slider_changed(slider_value: float, bus_name: String):
-	#set_bus_volume_percent(bus_name, slider_value)
-
-
 func on_audio_slider_sfx_changed(slider_value: float, bus_name: String):
 	set_bus_volume_percent(bus_name, slider_value)
 	sfx_percentage.text = str(slider_value) + "%"
@@ -63,5 +58,7 @@ func on_audio_slider_music_changed(slider_value: float, bus_name: String):
 
 
 func on_back_pressed():
+	ScreenTransition.transition()
+	await ScreenTransition.transitioned_halfway
 	back_pressed.emit()
 
