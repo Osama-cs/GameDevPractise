@@ -1,5 +1,6 @@
 extends Node
 
+const SAVE_FILE_PATH = "user://game.save"
 
 # Example of how you can use nseted dictionaries to store specific data.
 #var meta_upgardes: Dictionary = {
@@ -15,13 +16,25 @@ extends Node
 
 
 var save_data: Dictionary = {
-	"meta_upgarde_currency": 0, 
+	"meta_upgrade_currency": 0, 
 	"meta_upgrades": {}
 }
 
 func _ready():
 	GameEvents.experience_vial_collected.connect(on_experience_collected)
-	add_meta_upgarde(load("res://resources/meta_upgrades/experience_gain.tres"))
+	load_save_file()
+
+func load_save_file():
+	if !FileAccess.file_exists(SAVE_FILE_PATH):
+		return
+	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
+	save_data = file.get_var()
+	print(save_data)
+
+
+func save():
+	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
+	file.store_var(save_data)
 
 
 func add_meta_upgarde(upgrade: MetaUpgrade):
@@ -35,4 +48,5 @@ func add_meta_upgarde(upgrade: MetaUpgrade):
 
 func on_experience_collected(number: float):
 	save_data["meta_upgrade_currency"] += number
+
 
