@@ -29,7 +29,6 @@ func load_save_file():
 		return
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
 	save_data = file.get_var()
-	print(save_data)
 
 
 func save():
@@ -43,7 +42,7 @@ func add_meta_upgarde(upgrade: MetaUpgrade):
 			"quantity": 0
 		}
 	save_data["meta_upgrades"][upgrade.id]["quantity"] += 1
-	print(save_data)
+	save()
 
 
 func on_experience_collected(number: float):
